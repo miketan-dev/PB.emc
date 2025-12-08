@@ -1,6 +1,6 @@
 priority: 0
 colorHue: 0.5
-id: it.miketan.emc200
+id: it.miketan.emc
 ver: 2.0.0
 url: 
 includesConfigOverrides: false

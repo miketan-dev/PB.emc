@@ -73,14 +73,12 @@ namespace it.miketan.EnhancedCustomization
                 {
                     subsystem = EquipmentUtility.GetSubsystemInPart(part, hardpoint);
                     subsystem.isFused = false;
-
-                    Debug.LogFormat(
-                        $"[EMC] Hardpoint {hardpoint} --UNFUSED--. fused: {fused} | editable: {hardpointInfo.editable} | exposed: {hardpointInfo.exposed}.");
+                    
+                    Debug.LogFormat($"[EMC] Hardpoint {hardpoint} --UNFUSED--. fused: {fused} | editable: {hardpointInfo.editable} | exposed: {hardpointInfo.exposed}.");
                 }
                 else
                 {
-                    Debug.LogFormat(
-                        $"[EMC] Hardpoint {hardpoint} --FUSED--. fused: {fused} | editable: {hardpointInfo.editable} | exposed: {hardpointInfo.exposed}.");
+                    Debug.LogFormat($"[EMC] Hardpoint {hardpoint} --FUSED--. fused: {fused} | editable: {hardpointInfo.editable} | exposed: {hardpointInfo.exposed}.");
                 }
             }
         }

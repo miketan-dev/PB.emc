@@ -12,8 +12,8 @@ namespace it.miketan.EnhancedCustomization
             modId = modID;
             modPath = metadata.path;
             
-            //Logga la mod su un file ciò che succede nella mod.
-            EnableHarmonyFileLog();
+            //DEBUG - Scommentare per debug e produce nel Desktop un file log su Harmony.
+            //EnableHarmonyFileLog();
         }
     }
 }
