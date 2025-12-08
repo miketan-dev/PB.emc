@@ -1,4 +1,4 @@
-namespace EnhancedCustomizationMod
+namespace it.miketan.EnhancedCustomization
 {
     public partial class ModLink : PhantomBrigade.Mods.ModLink
     {

@@ -8,8 +8,8 @@
         <ProjectGuid>{A7872868-4A8B-4C66-97E4-063CE8684F42}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>EnhancedCustomizationMod</RootNamespace>
-        <AssemblyName>EnhancedCustomizationMod</AssemblyName>
+        <RootNamespace>it.miketan.EnhancedCustomization</RootNamespace>
+        <AssemblyName>it.miketan.EnhancedCustomization</AssemblyName>
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -59,6 +59,7 @@
         <Compile Include="ModLink.cs" />
         <Compile Include="Patch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="utilities\CandidateHardpointsUtility.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

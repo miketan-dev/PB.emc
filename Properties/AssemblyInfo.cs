@@ -4,13 +4,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EnhancedCustomizationMod")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("it.miketan.EnhancedCustomization")]
+[assembly: AssemblyDescription("Enhanced Customization Mod for Phantom Brigade 2.0")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany(".Miketan")]
-[assembly: AssemblyProduct("EnhancedCustomizationMod")]
+[assembly: AssemblyProduct("it.miketan.EnhancedCustomization")]
 [assembly: AssemblyCopyright("Copyright © .Miketan 2025")]
-[assembly: AssemblyTrademark("(C)2025 - Miketan")]
+[assembly: AssemblyTrademark("©.Miketan")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
