@@ -1,0 +1,23 @@
+priority: 0
+colorHue: 0.5
+id: it.miketan.emc200
+ver: 2.0.0
+url: 
+includesConfigOverrides: false
+includesConfigEdits: true
+includesConfigTrees: false
+includesLibraries: true
+includesTextures: false
+includesLocalizationEdits: false
+includesLocalizations: false
+includesAssetBundles: false
+gameVersionMin: 2.0
+gameVersionMax: 
+name: Enhanced Mod Customization 2.0
+desc: >-
+  Enter your description here. You can use some BBCode tags here, such as [b]bold[/b], [i]italic[/i] and [u]underlined[/u] text.
+
+
+  You can also embed more links if the URL field above is not enough:
+
+  - [url=www.google.com][u]Example text[/u][/url]

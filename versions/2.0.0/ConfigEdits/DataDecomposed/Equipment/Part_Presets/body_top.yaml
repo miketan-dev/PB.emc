@@ -1,0 +1,5 @@
+removed: false
+edits:
+- 'genSteps.10.hardpointsTargeted.4: external_top_head !+'
+- 'genSteps.10.hardpointsTargeted.5: external_top_pelvis !+'
+- 'genSteps.10.checks.0.ratingMin: 0'
