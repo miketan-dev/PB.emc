@@ -13,7 +13,7 @@ namespace it.miketan.EnhancedCustomization
             modPath = metadata.path;
             
             //Logga la mod su un file ciò che succede nella mod.
-            EnableHarmonyFileLog();
+            //EnableHarmonyFileLog();
         }
     }
 }
