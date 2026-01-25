@@ -62,7 +62,7 @@
         <Compile Include="utilities\CandidateHardpointsUtility.cs" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="versions\2.0.0\" />
+      <Folder Include="versions\2.0.1\" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
