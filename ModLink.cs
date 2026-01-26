@@ -1,6 +1,6 @@
 namespace it.miketan.EnhancedCustomization
 {
-    public partial class ModLink : PhantomBrigade.Mods.ModLink
+    public class ModLink : PhantomBrigade.Mods.ModLink
     {
         internal static int modIndex;
         internal static string modId;
