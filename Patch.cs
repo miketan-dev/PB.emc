@@ -1,5 +1,7 @@
-﻿using HarmonyLib;
+﻿
+using HarmonyLib;
 using it.miketan.EnhancedCustomization.utilities;
+using PhantomBrigade;
 using PhantomBrigade.Data;
 using UnityEngine;
 
@@ -8,7 +10,8 @@ namespace it.miketan.EnhancedCustomization
     [HarmonyPatch]
     public class Patch
     {
-        [HarmonyPatch(typeof(DataContainerSubsystemHardpoint), nameof(DataContainerSubsystemHardpoint.OnAfterDeserialization))]
+        [HarmonyPatch(typeof(DataContainerSubsystemHardpoint),
+            nameof(DataContainerSubsystemHardpoint.OnAfterDeserialization))]
         [HarmonyPostfix]
         static void putEditableState(DataContainerSubsystemHardpoint __instance)
         {
@@ -20,7 +23,6 @@ namespace it.miketan.EnhancedCustomization
                 // applica agli hardpoint candidati il campo editabile a true, se sono su false.
                 if (CandidateHardpointsUtility.IsCandidateHardpoint(__instance.key))
                 {
-
                     if (!__instance.editable)
                     {
                         __instance.editable = true;
@@ -43,36 +45,25 @@ namespace it.miketan.EnhancedCustomization
             __instance.ResolveText();
         }
 
-
-        [HarmonyPatch(typeof(EquipmentUtility), "AttachSubsystemToPart")]
+        [HarmonyPatch(typeof(WorkshopUtility), "FinishProjectOutputPart")]
         [HarmonyPostfix]
-        static void equipmentUtilityPostfix(EquipmentEntity subsystem, EquipmentEntity part, string hardpoint, bool fused = false)
+        public static void FinishProjectOutputPart_postfix(string partPresetKey, int rating)
         {
-            var hardpointInfo = DataMultiLinkerSubsystemHardpoint.GetEntry(hardpoint);
-            var subsystemBlueprint = subsystem.dataLinkSubsystem.data;
-            bool successfulAttach = false;
-            bool isComaptible = subsystemBlueprint.hardpointsProcessed.Contains(hardpoint);
+            var partPreset = DataMultiLinkerPartPreset.GetEntry(partPresetKey);
+            if (partPreset != null) return;
 
-            //Controllo se ci sono hardpoint e che siano compatibili
-            if (hardpointInfo != null && isComaptible)
+            var part = UnitUtilities.CreatePartEntityFromPreset(partPresetKey, rating);
+            if (part == null) return;
+
+            if (DataShortcuts.overworld.workshopStripsUnfusedSystems.Equals(true))
             {
-                successfulAttach = true;
-                subsystem.ReplaceSubsystemParentPart(part.id.id, hardpoint);
-
-                //Rimuovo il fusing del subsystem a cui sono collegati SOLO gli hardpoint candidati per l'unfuse.
-                //Ciò impedisce una modifica troppo permissiva che rischierebbe di estenderla a tutte le parti con degli hardpoint non inerenti al body.
-                if (CandidateHardpointsUtility.IsCandidateHardpoint(hardpoint) && fused)
-                {
-                    subsystem = EquipmentUtility.GetSubsystemInPart(part, hardpoint);
-                    subsystem.isFused = false;
-                    
-                    /*Debug.LogFormat($"[EMC] Hardpoint {hardpoint} --UNFUSED--. fused: {fused} | editable: {hardpointInfo.editable} | exposed: {hardpointInfo.exposed}.");*/
-                }
-                else
-                {
-                    Debug.LogFormat($"[EMC] Hardpoint {hardpoint} --FUSED--. fused: {fused} | editable: {hardpointInfo.editable} | exposed: {hardpointInfo.exposed}.");
-                }
-            }
+                DataShortcuts.overworld.workshopStripsUnfusedSystems = false;
+                Debug.LogFormat($"[EMC] - Set to {DataShortcuts.overworld.workshopStripsUnfusedSystems}");
+                
+                EquipmentUtility.RemoveEditableSubsystemsFromPart(part, false);
+                Debug.LogFormat("[EMC] SUBSYSTEMS NON FUSI ALLA CREAZIONE.");
+            } 
+            Debug.LogFormat("[EMC] FINE.");
         }
     }
 }
