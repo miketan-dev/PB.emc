@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeSettings">
+    <configurations />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7f553a6a-0237-4152-b060-6ab0fe8793c8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.it.miketan.EnhancedCustomization/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.it.miketan.EnhancedCustomization/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.it.miketan.EnhancedCustomization/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.it.miketan.EnhancedCustomization/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ModLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ModLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Patch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Patch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Properties/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it.miketan.EnhancedCustomization.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PB.emc.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it.miketan.EnhancedCustomization.sln" beforeDir="false" afterPath="$PROJECT_DIR$/PB.emc.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/it.miketan.EnhancedCustomization.sln.DotSettings.user" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="6" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;miketan-dev&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/miketan-dev/PB.emc.git&quot;,
+    &quot;accountId&quot;: &quot;5178cd64-1dfa-4676-8307-155cc1bb53d3&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/ModLink.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Patch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000000103916502" />
+      <entry key="MS500" value="1.0253126085510014" />
+      <entry key="S2" value="1.3988726199045165" />
+      <entry key="S5" value="1.6923633588134457" />
+      <entry key="S10" value="1.833621352555691" />
+      <entry key="S30" value="2.230754176277692" />
+      <entry key="S60" value="3.1641350027253154" />
+      <entry key="M2" value="6.028155386428618" />
+      <entry key="M5" value="16.627855548168174" />
+      <entry key="M10" value="26.660143350851477" />
+      <entry key="M15" value="31.58231857246804" />
+      <entry key="M30" value="37.609405936073145" />
+      <entry key="H1" value="41.115845537131015" />
+      <entry key="H2" value="43.00818404005717" />
+      <entry key="H4" value="43.9913267599919" />
+      <entry key="D1" value="44.830086053395625" />
+      <entry key="W1" value="44.97568207442172" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="2.5730806267367053E-7" />
+      <entry key="MS500" value="0.048093975630026944" />
+      <entry key="S2" value="0.46829839545230717" />
+      <entry key="S5" value="0.7382595402515332" />
+      <entry key="S10" value="0.8592203094966583" />
+      <entry key="S30" value="0.9506832777858865" />
+      <entry key="S60" value="0.976515833647292" />
+      <entry key="M2" value="1.0259981450106468" />
+      <entry key="M5" value="1.2668912818922486" />
+      <entry key="M10" value="1.5189493645139989" />
+      <entry key="M15" value="1.6461872120243444" />
+      <entry key="M30" value="1.8040621755494928" />
+      <entry key="H1" value="1.896743464742145" />
+      <entry key="H2" value="1.9469771492668662" />
+      <entry key="H4" value="1.9731304070660434" />
+      <entry key="D1" value="1.9954711596467207" />
+      <entry key="W1" value="1.9993517732780266" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="2.9251580966939115E-7" />
+      <entry key="MS500" value="0.08559137951666647" />
+      <entry key="S2" value="1.1836500041856743" />
+      <entry key="S5" value="2.060109827589724" />
+      <entry key="S10" value="2.4859259230968576" />
+      <entry key="S30" value="3.106937583393243" />
+      <entry key="S60" value="4.102508193337874" />
+      <entry key="M2" value="7.033785817151116" />
+      <entry key="M5" value="17.883846363093877" />
+      <entry key="M10" value="28.172185635741528" />
+      <entry key="M15" value="33.22340920484613" />
+      <entry key="M30" value="39.41061416669896" />
+      <entry key="H1" value="43.01107220230609" />
+      <entry key="H2" value="44.95437843134391" />
+      <entry key="H4" value="45.96405944530149" />
+      <entry key="D1" value="46.82549002288919" />
+      <entry key="W1" value="46.975024226691936" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3FBf7Qe2KQTvHIm4nmtmqZEo2vF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  }
+}</component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7f553a6a-0237-4152-b060-6ab0fe8793c8" name="Changes" comment="" />
+      <created>1781553215216</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1781553215216</updated>
+      <workItem from="1781553216701" duration="886000" />
+    </task>
+    <servers />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.OperationCanceledException" breakIfHandledByOtherCode="false" displayValue="System.OperationCanceledException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.Tasks.TaskCanceledException" breakIfHandledByOtherCode="false" displayValue="System.Threading.Tasks.TaskCanceledException" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Patch.cs</url>
+          <line>18</line>
+          <properties documentPath="X:\repos\PB.emc\Patch.cs" containingFunctionPresentation="Method 'putEditableState'">
+            <startOffsets>
+              <option value="570" />
+            </startOffsets>
+            <endOffsets>
+              <option value="683" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

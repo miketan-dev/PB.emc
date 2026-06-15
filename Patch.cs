@@ -1,9 +1,9 @@
 ﻿using HarmonyLib;
-using it.miketan.EnhancedCustomization.utilities;
+using PB.emc.utilities;
 using PhantomBrigade.Data;
 using UnityEngine;
 
-namespace it.miketan.EnhancedCustomization
+namespace PB.emc
 {
     [HarmonyPatch]
     public class Patch
@@ -16,7 +16,8 @@ namespace it.miketan.EnhancedCustomization
             // Programmazione difensiva; mi difendo da eventuali NullReferenceException
             if (__instance.key != null)
             {
-                Debug.LogFormat($"[EMC] Hardpoint rilevato: {CandidateHardpointsUtility.IsCandidateHardpoint(__instance.key)} ");
+                Debug.LogFormat(
+                    $"[EMC] Hardpoint rilevato: {CandidateHardpointsUtility.IsCandidateHardpoint(__instance.key)} ");
 
                 // applica agli hardpoint candidati il campo editabile a true, se sono su false.
                 if (CandidateHardpointsUtility.IsCandidateHardpoint(__instance.key))
