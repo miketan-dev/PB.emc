@@ -1,6 +1,6 @@
 priority: -100
 colorHue: 0.5
-id: it.miketan.emc
+id: PB.emc
 ver: 2.0.1
 url: 
 includesConfigOverrides: false
