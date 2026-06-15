@@ -1,6 +1,9 @@
-namespace it.miketan.EnhancedCustomization
+
+using PhantomBrigade.Mods;
+
+namespace PB.emc
 {
-    public class ModLink : PhantomBrigade.Mods.ModLink
+    public class EmcModLink : ModLink
     {
         internal static int modIndex;
         internal static string modId;
@@ -11,7 +14,7 @@ namespace it.miketan.EnhancedCustomization
             modIndex = modIndexPreload;
             modId = modID;
             modPath = metadata.path;
-            
+
             //DEBUG - Scommentare per debug e produce nel Desktop un file log su Harmony.
             //EnableHarmonyFileLog();
         }

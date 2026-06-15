@@ -8,20 +8,10 @@
         <ProjectGuid>{A7872868-4A8B-4C66-97E4-063CE8684F42}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>it.miketan.EnhancedCustomization</RootNamespace>
-        <AssemblyName>it.miketan.EnhancedCustomization</AssemblyName>
+        <RootNamespace>PB.emc</RootNamespace>
+        <AssemblyName>PB.emc</AssemblyName>
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>bin\Debug\</OutputPath>
-        <DefineConstants>DEBUG;TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,35 +24,35 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="0Harmony">
-          <HintPath>Z:\Steam\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\0Harmony.dll</HintPath>
+          <HintPath>Z:\Steam Launcher\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\0Harmony.dll</HintPath>
         </Reference>
         <Reference Include="Assembly-CSharp">
-          <HintPath>Z:\Steam\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\Assembly-CSharp.dll</HintPath>
+          <HintPath>Z:\Steam Launcher\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\Assembly-CSharp.dll</HintPath>
         </Reference>
         <Reference Include="Assembly-CSharp-firstpass">
-          <HintPath>Z:\Steam\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+          <HintPath>Z:\Steam Launcher\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
         </Reference>
         <Reference Include="Entitas">
-          <HintPath>Z:\Steam\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\Entitas.dll</HintPath>
+          <HintPath>Z:\Steam Launcher\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\Entitas.dll</HintPath>
         </Reference>
         <Reference Include="System">
-          <HintPath>Z:\Steam\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\System.dll</HintPath>
+          <HintPath>Z:\Steam Launcher\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\System.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine">
-          <HintPath>Z:\Steam\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\UnityEngine.dll</HintPath>
+          <HintPath>Z:\Steam Launcher\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\UnityEngine.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
-          <HintPath>Z:\Steam\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+          <HintPath>Z:\Steam Launcher\steamapps\common\Phantom Brigade\PhantomBrigade_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="ModLink.cs" />
+        <Compile Include="EmcModLink.cs" />
         <Compile Include="Patch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="utilities\CandidateHardpointsUtility.cs" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="versions\2.0.1\" />
+      <Folder Include="versions\2.0.0\" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

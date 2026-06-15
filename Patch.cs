@@ -1,11 +1,10 @@
-﻿
-using HarmonyLib;
-using it.miketan.EnhancedCustomization.utilities;
+﻿using HarmonyLib;
+using PB.emc.utilities;
 using PhantomBrigade;
 using PhantomBrigade.Data;
 using UnityEngine;
 
-namespace it.miketan.EnhancedCustomization
+namespace PB.emc
 {
     [HarmonyPatch]
     public class Patch
@@ -59,10 +58,11 @@ namespace it.miketan.EnhancedCustomization
             {
                 DataShortcuts.overworld.workshopStripsUnfusedSystems = false;
                 Debug.LogFormat($"[EMC] - Set to {DataShortcuts.overworld.workshopStripsUnfusedSystems}");
-                
+
                 EquipmentUtility.RemoveEditableSubsystemsFromPart(part, false);
                 Debug.LogFormat("[EMC] SUBSYSTEMS NON FUSI ALLA CREAZIONE.");
-            } 
+            }
+
             Debug.LogFormat("[EMC] FINE.");
         }
     }

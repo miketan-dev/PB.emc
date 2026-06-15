@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace it.miketan.EnhancedCustomization.utilities
+namespace PB.emc.utilities
 {
     internal class CandidateHardpointsUtility
     {
