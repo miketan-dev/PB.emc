@@ -1,0 +1,5 @@
+removed: false
+edits:
+- 'genSteps.6.hardpointsTargeted.3: external_arm_lower !+'
+- 'genSteps.6.hardpointsTargeted.4: external_arm_upper !+'
+- 'genSteps.6.checks.0.ratingMin: 0'
