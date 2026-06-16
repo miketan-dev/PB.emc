@@ -54,7 +54,11 @@
         <Compile Include="utilities\YamlUtils.cs" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="versions\2.0.0\" />
+      <Folder Include="versions\2.1.1\" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="versions\2.0.0\ConfigEdits\Data\Settings\overworld.yaml" />
+      <Content Include="versions\2.0.0\metadata.yaml" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

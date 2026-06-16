@@ -1,0 +1,14 @@
+removed: false
+edits:
+- 'genSteps.6.checks.0.ratingMin: 1'
+- 'genSteps.8: !SetHardpointState !+'
+- 'genSteps.8.fused: false'
+- 'genSteps.8.hardpointsTargeted.0: external_bottom_left_lower !+'
+- 'genSteps.8.hardpointsTargeted.1: external_bottom_right_lower !+'
+- 'genSteps.8.hardpointsTargeted.0: external_bottom_left_upper !+'
+- 'genSteps.8.hardpointsTargeted.1: external_bottom_right_upper'
+- 'genSteps.8.priority: 50'
+- 'genSteps.8.checks: !d'
+- 'genSteps.8.checks.0: !CheckPartRating !+'
+- 'genSteps.8.checks.0.ratingMin: 0'
+- 'genSteps.8.checks.0.ratingMax: 3'

@@ -1,0 +1,18 @@
+priority: -100
+colorHue: 0.5
+id: PB.emc
+ver: 2.1.1
+url: 
+includesConfigOverrides: false
+includesConfigEdits: true
+includesConfigTrees: false
+includesLibraries: true
+includesTextures: false
+includesLocalizationEdits: false
+includesLocalizations: false
+includesAssetBundles: false
+gameVersion2Compatible: true
+gameVersionMin: 2.0
+gameVersionMax: 
+name: Enhanced Customization Mod (E.M.C.)
+desc: "=======[INTRO]=======\r\nThis mod expands mech customization by allowing the modification of sub-pieces of various parts (torso, legs, etc.).\r\n\r\nTo use pieces from other frames, you must scrap and detach them from your inventory. This mod is compatible when combining pieces into rare (blue) armor parts to reveal additional slots.\r\n\n=======[FEEDBACK & SUGGESTIONS]=======\r\n\r\nI am active on BYG Discord as Mod Author and I would love to receive your feedbacks & suggestions! However, I only receive feedback/suggestions on Steam workshop and Nexus Mod page related to this mod as it is more handy to handle issues in these places.\r\n\r\nFor this reason, Suggestions and Feedbacks received throught BYG Channel, direct pinging and DMs WILL NOT be considered.\n\r\n=======[CREDITS]=======\r\n[b]Original Author[/b]\n- [i]Aerrus[/i]\r\n\r\n[b]ConfigEdit Adaptation[/b]\n- [i]radionecrotic[/i]  \r\n- [i]No;Hurry[/i]\r\n\r\n[b]Mod SDK / Steam Workshop uploading / Library mod development[/b]\n- [i]Miketan[/i]\r\n"
