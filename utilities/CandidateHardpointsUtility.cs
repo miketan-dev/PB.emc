@@ -1,27 +1,45 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using PB.emc.Models;
+using UnityEngine;
 
 namespace PB.emc.utilities
 {
-    internal class CandidateHardpointsUtility
+    internal static class CandidateHardpointsUtility
     {
-        //Solo gli hardpoint selezionati possono essere candidati per la qualifica di hardpoint editabili.
-        //Aggiungere eventuali hardpoint aggiuntivi qui.
-        private static readonly HashSet<string> CandidateHardpoints = new HashSet<string>
-        {
-            "external_arm_lower",
-            "external_arm_upper",
-            "external_bottom_left_lower",
-            "external_bottom_right_lower",
-            "external_bottom_left_upper",
-            "external_bottom_right_upper",
-            "external_top_head",
-            "external_top_pelvis"
-        };
+        private static HashSet<string> _cachedHardpoints = null;
+        private static HashSet<string> _cachedHardpointsTargeted = null;
 
-        //Metodo usato per determinare se l'hardpoint target è candidato all'unfuse o meno.
+        private static void EnsureInit()
+        {
+            if (_cachedHardpoints != null) return;
+            if (_cachedHardpointsTargeted != null) return;
+
+            var fullPath = Path.Combine(EmcModLink.modPath, "emc_cache");
+            var ext = ".yaml";
+            var fileName = "candidate_hardpoints";
+
+            //concateno il nome e l'estensione.
+            var filenameCombined = fileName + ext;
+
+            var config = YamlUtils.ReadFile<CandidateHardpointsModel>(fullPath, filenameCombined);
+            _cachedHardpoints = config?.Data?.CandidateHardpoints ?? new HashSet<string>();
+            _cachedHardpointsTargeted = config?.Data?.CandidateHardpointsTargeted ?? new HashSet<string>();
+
+            Debug.LogFormat($"[EMC] - Hardpoint candidati trovati: {_cachedHardpoints.Count}");
+            Debug.LogFormat($"[EMC] - Hardpoint targeted trovati: {_cachedHardpointsTargeted.Count}");
+        }
+        
         public static bool IsCandidateHardpoint(string hardpoint)
         {
-            return CandidateHardpoints.Contains(hardpoint);
+            EnsureInit();
+            return _cachedHardpoints.Contains(hardpoint);
+        }
+        
+        public static bool IsCandidateHardpointTargeted(string hardpoint)
+        {
+            EnsureInit();
+            return _cachedHardpointsTargeted.Contains(hardpoint);
         }
     }
 }

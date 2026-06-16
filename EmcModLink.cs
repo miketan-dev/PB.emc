@@ -1,4 +1,3 @@
-
 using PhantomBrigade.Mods;
 
 namespace PB.emc

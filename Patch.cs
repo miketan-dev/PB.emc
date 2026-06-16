@@ -1,7 +1,10 @@
-﻿using HarmonyLib;
+﻿using System.Collections.Generic;
+using System.Linq;
+using HarmonyLib;
 using PB.emc.utilities;
 using PhantomBrigade;
 using PhantomBrigade.Data;
+using PhantomBrigade.Functions.Equipment;
 using UnityEngine;
 
 namespace PB.emc
@@ -9,38 +12,75 @@ namespace PB.emc
     [HarmonyPatch]
     public class Patch
     {
-        [HarmonyPatch(typeof(DataContainerSubsystemHardpoint),
-            nameof(DataContainerSubsystemHardpoint.OnAfterDeserialization))]
+        [HarmonyPatch(typeof(DataContainerPartPreset), "OnAfterDeserialization")]
+        [HarmonyPostfix]
+        static void resetEditableState(DataContainerPartPreset __instance)
+        {
+            if (__instance.genStepsProcessed == null) return;
+
+            foreach (IPartGenStep genStep in __instance.genStepsProcessed)
+            {
+                if (genStep is AddHardpoints addHardpointsStep)
+                {
+                    List<string> targets = addHardpointsStep.hardpointsTargeted;
+
+                    if (targets != null && targets.Count > 0)
+                    {
+                        // Uso .ToList() per poter modificare 'targets' in sicurezza
+                        foreach (var targetKey in targets.ToList())
+                        {
+                            //Loggo la lista di hardpoints targetati
+                            Debug.LogFormat($"[EMC] - {__instance.key} -> hardpoint target: {targetKey}");
+                            
+                            // Se nel part preset NON E' un hardpoint candidato, lo rimuovo
+                            if (!CandidateHardpointsUtility.IsCandidateHardpointTargeted(targetKey)) 
+                            {
+                                Debug.LogFormat($"[EMC] - {__instance.key} -> hardpoint target: {targetKey} NON CANDIDATO. Rimozione...");
+                                targets.Remove(targetKey);
+                            }
+                            else
+                            {
+                                Debug.LogFormat($"[EMC] - {__instance.key} -> hardpoint target: {targetKey} CANDIDATO! Mantenuto.");
+                            }
+                        }
+                    }
+                }
+            }
+            __instance.ResolveText();
+        }
+
+        [HarmonyPatch(typeof(DataContainerSubsystemHardpoint), "OnAfterDeserialization")]
         [HarmonyPostfix]
         static void putEditableState(DataContainerSubsystemHardpoint __instance)
         {
-            // Programmazione difensiva; mi difendo da eventuali NullReferenceException
             if (__instance.key != null)
             {
-                /*Debug.LogFormat($"[EMC] Hardpoint rilevato: {CandidateHardpointsUtility.IsCandidateHardpoint(__instance.key)} ");*/
-
                 // applica agli hardpoint candidati il campo editabile a true, se sono su false.
                 if (CandidateHardpointsUtility.IsCandidateHardpoint(__instance.key))
                 {
                     if (!__instance.editable)
                     {
                         __instance.editable = true;
+                        Debug.LogFormat($"[EMC] Hardpoint {__instance.key} --CANDIDATO--. editable: {__instance.editable}");
                     }
-
-                    /*Debug.LogFormat(
-                        $"[EMC] Hardpoint {__instance.key} --CANDIDATO--. editable: {__instance.editable} | exposed: {__instance.exposed} | visual: {__instance.visual}.");*/
                 }
                 else
                 {
-                    Debug.LogWarningFormat(
-                        $"[EMC] Hardpoint {__instance.key} --NON CANDIDATO--. editable: {__instance.editable} | exposed: {__instance.exposed} | visual: {__instance.visual}.");
+                    // Se non è candidato, devo forzarlo a false
+                    if (__instance.editable)
+                    {
+                        __instance.editable = false;
+                        Debug.LogWarningFormat($"[EMC] - Hardpoint {__instance.key} --NON CANDIDATO--. editable: {__instance.editable}");
+                    }
                 }
+
+                Debug.LogFormat($"[EMC] - Hardpoint RILEVATO: {__instance.key}");
             }
             else
             {
-                Debug.LogWarningFormat($"[EMC] Hardpoint NON RILEVATO: {__instance.key} . ");
+                Debug.LogWarningFormat($"[EMC] - Hardpoint NON RILEVATO: {__instance.key} . ");
             }
-
+            
             __instance.ResolveText();
         }
 
