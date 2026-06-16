@@ -21,7 +21,7 @@ namespace PB.emc.utilities
 
             //concateno il nome e l'estensione.
             var filenameCombined = fileName + ext;
-
+            
             var config = YamlUtils.ReadFile<CandidateHardpointsModel>(fullPath, filenameCombined);
             _cachedHardpoints = config?.Data?.CandidateHardpoints ?? new HashSet<string>();
             _cachedHardpointsTargeted = config?.Data?.CandidateHardpointsTargeted ?? new HashSet<string>();

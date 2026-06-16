@@ -47,9 +47,11 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="EmcModLink.cs" />
+        <Compile Include="Models\CandidateHardpointsModel.cs" />
         <Compile Include="Patch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="utilities\CandidateHardpointsUtility.cs" />
+        <Compile Include="utilities\YamlUtils.cs" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="versions\2.0.0\" />
