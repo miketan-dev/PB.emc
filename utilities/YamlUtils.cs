@@ -13,7 +13,7 @@ namespace PB.emc.utilities
             {
                 CreateFile<T>(path, fileName);
             }
-            
+
             var input = File.ReadAllText(fullPath);
             var deserializer = new DeserializerBuilder().Build();
 
@@ -22,7 +22,17 @@ namespace PB.emc.utilities
 
         private static void CreateFile<T>(string path, string fileName) where T : new()
         {
-            T defaultObj = new T();
+            var introText =
+                $"# Enhanced Customization Mod - v{EmcModLink.modVersion}\n" +
+                "# © .Miketan - https://github.com/miketan-dev" +
+                "#\n" +
+                "#\n" +
+                "# ==========================================\n" +
+                "# HARDPOINT CONFIGURATION FILE\n" +
+                "# Aggiungi o rimuovi gli hardpoint qui sotto.\n" +
+                "# ==========================================\n";
+
+            var defaultObj = new T();
             var fullPath = Path.Combine(path, fileName);
             var serializer = new SerializerBuilder().Build();
             var yamlContent = serializer.Serialize(defaultObj);
@@ -32,7 +42,9 @@ namespace PB.emc.utilities
                 Directory.CreateDirectory(path);
             }
 
-            File.WriteAllText(fullPath, yamlContent);
+            var finalText = introText + yamlContent;
+
+            File.WriteAllText(fullPath, finalText);
         }
     }
 }

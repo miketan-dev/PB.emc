@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using PB.emc.Models;
 using UnityEngine;
 
@@ -7,8 +8,8 @@ namespace PB.emc.utilities
 {
     internal static class CandidateHardpointsUtility
     {
-        private static HashSet<string> _cachedHardpoints = null;
-        private static HashSet<string> _cachedHardpointsTargeted = null;
+        private static HashSet<string> _cachedHardpoints;
+        private static HashSet<string> _cachedHardpointsTargeted;
 
         private static void EnsureInit()
         {
@@ -16,26 +17,35 @@ namespace PB.emc.utilities
             if (_cachedHardpointsTargeted != null) return;
 
             var fullPath = Path.Combine(EmcModLink.modPath, "emc_cache");
-            var ext = ".yaml";
-            var fileName = "candidate_hardpoints";
+            const string ext = ".yaml";
+            const string fileName = "candidate_hardpoints";
 
-            //concateno il nome e l'estensione.
-            var filenameCombined = fileName + ext;
-            
+            //concateno il nome e l'estensione
+            const string filenameCombined = fileName + ext;
+
             var config = YamlUtils.ReadFile<CandidateHardpointsModel>(fullPath, filenameCombined);
-            _cachedHardpoints = config?.Data?.CandidateHardpoints ?? new HashSet<string>();
-            _cachedHardpointsTargeted = config?.Data?.CandidateHardpointsTargeted ?? new HashSet<string>();
+            _cachedHardpoints = config?.Data?.CandidateHardpoints ?? [];
+            _cachedHardpointsTargeted = config?.Data?.CandidateHardpointsTargeted ?? [];
 
-            Debug.LogFormat($"[EMC] - Hardpoint candidati trovati: {_cachedHardpoints.Count}");
-            Debug.LogFormat($"[EMC] - Hardpoint targeted trovati: {_cachedHardpointsTargeted.Count}");
+            foreach (var elements in _cachedHardpoints)
+            {
+                Debug.Log($"[EMC] - Hardpoint candidati trovati:\n numero elementi: {elements.Length} \n" +
+                          "lista hardpoints: \n" + elements.ToList());
+            }
+
+            foreach (var elements in _cachedHardpointsTargeted)
+            {
+                Debug.Log($"[EMC] - Hardpoint targeted trovati:\n numero elementi: {elements.Length} \n" +
+                          "lista hardpoints: \n" + elements.ToList());
+            }
         }
-        
+
         public static bool IsCandidateHardpoint(string hardpoint)
         {
             EnsureInit();
             return _cachedHardpoints.Contains(hardpoint);
         }
-        
+
         public static bool IsCandidateHardpointTargeted(string hardpoint)
         {
             EnsureInit();
