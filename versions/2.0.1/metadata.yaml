@@ -1,12 +1,12 @@
 priority: -100
 colorHue: 0.5
 id: PB.emc
-ver: 2.0.0
+ver: 2.0.1
 url: 
 includesConfigOverrides: false
 includesConfigEdits: true
 includesConfigTrees: false
-includesLibraries: false
+includesLibraries: true
 includesTextures: false
 includesLocalizationEdits: false
 includesLocalizations: false

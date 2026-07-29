@@ -1,16 +1,17 @@
 priority: -100
 colorHue: 0.5
 id: PB.emc
-ver: 2.0.0
-url: 
+ver: 2.1.1
+url: https://github.com/miketan-dev/PB.emc
 includesConfigOverrides: false
-includesConfigEdits: true
+includesConfigEdits: false
 includesConfigTrees: false
-includesLibraries: false
+includesLibraries: true
 includesTextures: false
 includesLocalizationEdits: false
 includesLocalizations: false
 includesAssetBundles: false
+gameVersion2Compatible: true
 gameVersionMin: 2.0
 gameVersionMax: 
 name: Enhanced Customization Mod (E.M.C.)
