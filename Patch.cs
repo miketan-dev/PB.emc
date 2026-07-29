@@ -8,9 +8,17 @@ using UnityEngine;
 
 namespace PB.emc;
 
+
 [HarmonyPatch]
 public class Patch
 {
+    /// <summary>
+    /// Esegue un patch per forzare il campo 'fused' a false per intercettare gli hardpoint tramite DataContainerPartPreset a runtime.
+    /// </summary>
+    /// <param name="preset"></param>
+    /// <param name="layout"></param>
+    /// <param name="rating"></param>
+    /// <param name="log"></param>
     [HarmonyPatch(typeof(SetHardpointState), "Run", new[]
     {
         typeof(DataContainerPartPreset),
@@ -39,7 +47,11 @@ public class Patch
             }
         }
     }
-
+    
+    /// <summary>
+    /// Esegue un patch per forzare il campo 'editable' a true per gli hardpoint candidati attraverso la deserializzazione del DataContainerSubsystemHardpoint.
+    /// </summary>
+    /// <param name="__instance"></param>
     [HarmonyPatch(typeof(DataContainerSubsystemHardpoint), "OnAfterDeserialization")]
     [HarmonyPostfix]
     static void putEditableState(DataContainerSubsystemHardpoint __instance)
@@ -82,6 +94,11 @@ public class Patch
         __instance.ResolveText();
     }
 
+    /// <summary>
+    /// Effettua un patching per effettuare lo strip dei subsystems non fusi; ciò permette di creare le parti con i sottopezzi inclusi.
+    /// </summary>
+    /// <param name="partPresetKey"></param>
+    /// <param name="rating"></param>
     [HarmonyPatch(typeof(WorkshopUtility), "FinishProjectOutputPart")]
     [HarmonyPostfix]
     static void FinishProjectOutputPart_postfix(string partPresetKey, int rating)
