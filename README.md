@@ -1,44 +1,92 @@
-﻿def update_readme():
-content = """# 🛠️ PB.emc (Equipment Modification Core)
-Una mod per **Phantom Brigade** che sblocca la personalizzazione avanzata degli hardpoint, permettendoti di configurare dinamicamente quali moduli e sottosistemi possono essere modificati.
+﻿# 🛠️ PB.emc (Enhanced Mech Customization)
+
+![Mod Version](https://img.shields.io/badge/Mod%20Version-2.1.1-blue)
+![Game Version](https://img.shields.io/badge/Phantom%20Brigade-%3E%3D%202.0-green)
+![Framework](https://img.shields.io/badge/Framework-.NET%20v4.7.2-purple)
+![Language](https://img.shields.io/badge/Language-C%23%207.3-informational)
+
+| Metadata | Details |
+| :--- | :--- |
+| **Release Date** | 2025/12/14 |
+| **Update Date** | 2026/07/29 |
+| **Mod Version** | `2.1.1` |
+| **Repository** | [GitHub Repository](https://github.com/) |
+| **Programming Language** | C# 7.3 (.NET Framework v4.7.2) |
+| **Minimum Game Version** | >= 2.0 |
 
 ---
 
-## 📖 Descrizione
+## 📖 Description
 
-Nel gioco base, molti hardpoint delle parti (braccia, gambe, torso) nascono "fusi" (fused) e non editabili, bloccando la creatività del giocatore nella costruzione del mech perfetto.
-**PB.emc** intercetta la generazione degli equipaggiamenti e sblocca specifici hardpoint, rendendoli editabili nel Workshop e impedendo che i sottosistemi vengano fusi permanentemente al pezzo.
+**Enhanced Mech Customization (E.M.C.)** is a library mod for *Phantom Brigade* that unlocks advanced hardpoint customization, enabling dynamic and granular configuration of hardpoints at runtime through the so-called **"hardpoint candidates"**.
 
-Il vero potere di questa mod risiede nella sua **flessibilità**: gli hardpoint candidati allo sblocco non sono decisi a priori dal codice, ma sono **completamente personalizzabili dall'utente** tramite un semplice file di configurazione testuale.
+In-game, based on vanilla parts, their hardpoints (such as arms, legs, torso, etc.) spawn already "fused" and "non-editable", blocking access to the sub-pieces of said sub-parts (head, thigs, lower/upper arm, etc.) which are invisible to the user; this was seemingly unnecessary during game-design phase.
 
----
+For this reason, hiding a big potential, **E.M.C.** intercepts equipment generation and unlocks specific hardpoints at runtime, making them editable in Customization screen and preventing subsystems from being permanently fused to the part.
 
-## ✨ Funzionalità Principali
-
-*   **Sblocco Dinamico (Unfuse):** Impedisce la fusione nativa dei sottosistemi durante la generazione del pezzo (crafting o drop), lasciando gli hardpoint vuoti e pronti ad accogliere nuovi moduli.
-*   **Editor Universale:** Rende visibili e modificabili gli hardpoint scelti all'interno dell'interfaccia dell'inventario e del Workshop.
-*   **Sicuro per l'IA (No AI Break):** La mod è progettata per sbloccare le funzionalità di editing solo per l'interfaccia utente del giocatore. I nemici generati sul campo di battaglia continueranno a spawnare regolarmente con i loro equipaggiamenti intatti e funzionanti, senza bug.
-*   **Configurazione via YAML:** Aggiungi o rimuovi gli hardpoint che vuoi rendere editabili semplicemente modificando un file testuale.
+The true power of this mod lies in its flexibility: candidate hardpoints for unlocking are not hardcoded, but completely customizable through a simple text-based YAML configuration file generated only once during mod loading.
 
 ---
 
-## ⚙️ Come usare la configurazione (YAML)
+## ✨ Key Features
 
-All'interno della cartella della mod, troverai un file di configurazione situato in:
-`emc_cache/candidate_hardpoints.yaml`
+* **Dynamic Unfuse:** Prevents native fusion of subsystems during part generation (crafting or drops), leaving hardpoints empty and ready to accept new modules.
+* **Universal Editor:** Makes chosen hardpoints visible and editable within the inventory and Workshop interface.
+* **AI Safe (No AI Break):** Designed to unlock editing features exclusively for the player's UI. Enemies generated on the battlefield continue to spawn normally with their original, intact, and functional equipment.
+* **YAML Configuration:** Add or remove hardpoints you want to make editable simply by editing a text file.
 
-Puoi aprire questo file con un qualsiasi editor di testo (come Blocco Note, VS Code o Notepad++). Il file si presenta così:
+---
+
+## ⚙️ How to Use Configuration (YAML)
+
+Inside the mod folder, a configuration file will be generated upon game launch at the following path:):
+
+```path
+emc_cache/candidate_hardpoints.yaml
+```
+
+which contains a pre-loaded list of hardpoints, as shown in the following code:
 
 ```yaml
+# [Enhanced Customization Mod - v2.0] 
+# [Candidate Hardpoints Utility] 
+# © .Miketan - https://github.com/miketan-dev 
+#
+#
+# ============================================================================================ 
+# This configuration file is composed in two sections: 
+# 1. candidateHardpoints -> affects normal hardpoint definition to make it editable 
+# 2. candidateHardpointsTargeted -> affects hardpoints generation state in part presets 
+#
+# Add or remove the desired hardpoints to enable or disable them, according to your preference. 
+# ============================================================================================ 
 data:
   candidateHardpoints:
   - external_arm_lower
   - external_arm_upper
   - external_bottom_left_lower
-  # ... aggiungi altri qui
-  
-  candidateHardpointsTargeted:
+  - external_bottom_right_lower
+  - external_bottom_left_upper
+  - external_bottom_right_upper
+  - external_top_head
+  - external_top_pelvis
+  CandidateHardpointsTargeted:
   - external_arm_lower
   - external_arm_upper
   - external_bottom_left_lower
-  # ... aggiungi altri qui
+  - external_bottom_right_lower
+  - external_bottom_left_upper
+  - external_bottom_right_upper
+  - external_top_head
+  - external_top_pelvis
+```
+
+>⚠️ **NOTICE** ⚠️<br>
+>The above-mentioned folder, as well as the caching file, are generated WITHIN THE MOD DIRECTORY, as required by Brace Yourself Games Guideline.
+> <br>By setting up the logic within said scope, any trace of the caching system can be safely removed, even manually if required.
+> <br>No other file/folder generation is not perfomed OUTSIDE this scope other than the caching system of this mod.
+
+The caching system will grant the user total control of which hardpoint can be enabled to be unfused or not config-wise.<br>
+While the logic revolves around unlocking body parts in the first place, the user have the total freedom to add/remove as many hardpoints as he/she wants.
+<br><bR>A notoriously good example can be the development of custom hardpoint mods that can enable this mod to be interoperable with them.
+Althought a huge potential, said use case may work but NOT OFFICIALLY GUARANTEED/TESTED (in case, report to me in case of bug or unexpected behavior).

@@ -26,7 +26,7 @@ public class Patch
 
         foreach (var kvp in layout)
         {
-            string hardpointKey = kvp.Key;
+            var hardpointKey = kvp.Key;
             GeneratedHardpoint genHardpoint = kvp.Value;
 
             if (CandidateHardpointsUtility.IsCandidateHardpointTargeted(hardpointKey))
@@ -60,6 +60,7 @@ public class Patch
                         $"[EMC] Hardpoint {__instance.key} --CANDIDATO--. setting editable to: {__instance.editable}");
                 }
             }
+            //TODO: questo metodo non sembra essere necessario, ma la logica è che forza a false il campo editable se non è candidato. Se la if mette editable a true, questo else può servire?
             // else
             // {
             //     // Se non è candidato, devo forzarlo a false
