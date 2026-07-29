@@ -39,7 +39,6 @@ namespace PB.emc.utilities
                 "# [Candidate Hardpoints Utility] \n"+
                 "# © .Miketan - https://github.com/miketan-dev \n" +
                 "#\n" +
-                "#\n" +
                 "# ============================================================================================ \n" +
                 "# This configuration file is composed in two sections: \n" +
                 "# 1. candidateHardpoints -> affects normal hardpoint definition to make it editable \n" +

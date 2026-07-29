@@ -18,17 +18,19 @@ namespace PB.emc
             modId = modID;
 
             modVersion = metadata.gameVersionMin;
-            
-            try {
-                
-            } catch (Exception e) {
+
+            try
+            {
+            }
+            catch (Exception e)
+            {
                 Debug.LogErrorFormat("[EMC] - MOD NOT LOADED: {0}", e.Message);
             }
-            
-            Debug.LogFormat("[EMC] - MOD LOADED.");
 
-            //DEBUG - Scommentare per debug e produce nel Desktop un file log su Harmony.
-            //EnableHarmonyFileLog();
+            Debug.LogFormat("[EMC] - MOD LOADED. modIndex: " + modIndex + " | " + " modId: " + modId + " | " +
+                            "modPath: " + modPath + " | " + " modVersion: " + modVersion + " ");
+
+            //EnableHarmonyFileLog(); // USE ONLY WHEN DEBUGGING - DON'T LEAVE IT ENABLED IN RELEASE.
         }
     }
 }

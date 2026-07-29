@@ -31,18 +31,7 @@ namespace PB.emc.utilities
             var config = YamlUtils.ReadFile<CandidateHardpointsModel>(fullPath, filenameCombined);
             _cachedHardpoints = config?.Data?.CandidateHardpoints ?? [];
             _cachedHardpointsTargeted = config?.Data?.CandidateHardpointsTargeted ?? [];
-
-            foreach (var elements in _cachedHardpoints)
-            {
-                Debug.Log($"[EMC] - Hardpoint candidati trovati:\n numero elementi: {elements.Length} \n" +
-                          "lista hardpoints: \n" + elements.ToList());
-            }
-
-            foreach (var elements in _cachedHardpointsTargeted)
-            {
-                Debug.Log($"[EMC] - Hardpoint targeted trovati:\n numero elementi: {elements.Length} \n" +
-                          "lista hardpoints: \n" + elements.ToList());
-            }
+            
         }
 
         /// <summary>
