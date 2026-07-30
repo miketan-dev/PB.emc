@@ -12,8 +12,9 @@ namespace PB.emc;
 public class Patch
 {
     /// <summary>
-    /// Esegue un patch per forzare il campo 'fused' a false per intercettare gli hardpoint tramite DataContainerPartPreset a runtime.
+    /// Metodo di patch per forzare lo stato dell'HardpointTargeted modificando il campo 'fused' a false.
     /// </summary>
+    /// 
     /// <param name="preset"></param>
     /// <param name="layout"></param>
     /// <param name="rating"></param>
@@ -41,16 +42,19 @@ public class Patch
                 if (genHardpoint.fused)
                 {
                     genHardpoint.fused = false;
-                    Debug.Log(
-                        $"[EMC] - {preset.key} -> hardpoint: {hardpointKey} CANDIDATO. 'fused' forzato a {genHardpoint.fused}");
+
+                    //Abilitare per Debug; disabilitato per evitare di inondare la console di log.
+                    // Debug.Log(
+                    //     $"[EMC] - {preset.key} -> hardpoint: {hardpointKey} CANDIDATO. 'fused' forzato a {genHardpoint.fused}");
                 }
             }
         }
     }
 
     /// <summary>
-    /// Esegue un patch per forzare il campo 'editable' a true per gli hardpoint candidati attraverso la deserializzazione del DataContainerSubsystemHardpoint.
+    /// Esegue un patch per forzare il campo 'editable' a true per gli hardpoint candidati attraverso il file di cache.
     /// </summary>
+    /// 
     /// <param name="__instance"></param>
     [HarmonyPatch(typeof(DataContainerSubsystemHardpoint), "OnAfterDeserialization")]
     [HarmonyPostfix]
@@ -64,8 +68,10 @@ public class Patch
                 if (!__instance.editable)
                 {
                     __instance.editable = true;
-                    Debug.LogFormat(
-                        $"[EMC] Hardpoint {__instance.key} --CANDIDATO--. Forzo il campo 'editable' a: {__instance.editable}");
+
+                    //Abilitare per Debug
+                    // Debug.LogFormat(
+                    //     $"[EMC] Hardpoint {__instance.key} --CANDIDATO--. Forzo il campo 'editable' a: {__instance.editable}");
                 }
             }
         }
@@ -78,27 +84,40 @@ public class Patch
     }
 
     /// <summary>
-    /// Effettua un patching per effettuare lo strip dei subsystems non fusi; ciò permette di creare le parti con i sottopezzi inclusi.
+    /// impedisce lo strip dei sottopezzi della parte dopo il crafting dal workshop.
     /// </summary>
-    /// <param name="partPresetKey"></param>
-    /// <param name="rating"></param>
+    ///
+    /// <param name="__state"></param>
     [HarmonyPatch(typeof(WorkshopUtility), "FinishProjectOutputPart")]
-    [HarmonyPostfix]
-    static void FinishProjectOutputPart_postfix(string partPresetKey, int rating)
+    [HarmonyPrefix]
+    static void FinishProjectOutputPart_prefix(out bool __state)
     {
-        var partPreset = DataMultiLinkerPartPreset.GetEntry(partPresetKey);
-        if (partPreset != null) return;
+        __state = DataShortcuts.overworld.workshopStripsUnfusedSystems;
 
-        var part = UnitUtilities.CreatePartEntityFromPreset(partPresetKey, rating);
-        if (part == null) return;
-
-        if (DataShortcuts.overworld.workshopStripsUnfusedSystems.Equals(true))
+        if (__state)
         {
             DataShortcuts.overworld.workshopStripsUnfusedSystems = false;
-            Debug.LogFormat($"[EMC] - Set to {DataShortcuts.overworld.workshopStripsUnfusedSystems}");
+            Debug.LogFormat(
+                $"[EMC] - Subsystem strip forzato a {DataShortcuts.overworld.workshopStripsUnfusedSystems}; i subpiece non sono stati rimossi");
+        }
+    }
 
-            EquipmentUtility.RemoveEditableSubsystemsFromPart(part, false);
-            Debug.LogFormat("[EMC] SUBSYSTEMS NON FUSI ALLA CREAZIONE.");
+    /// <summary>
+    /// Metodo di salvaguardia che ripristina lo stato originale del booleano non appena il prefix ha finito.
+    /// Evita effetti indesiderati se il booleano viene lasciato in memoria su false.
+    /// </summary>
+    ///
+    /// <param name="__state"></param>
+    [HarmonyPatch(typeof(WorkshopUtility), "FinishProjectOutputPart")]
+    [HarmonyPostfix]
+    static void FinishProjectOutputPart_postfix(bool __state)
+    {
+        DataShortcuts.overworld.workshopStripsUnfusedSystems = __state;
+
+        // Condizione creata per evitare loggature inutili
+        if (__state)
+        {
+            Debug.LogFormat($"[EMC] - Postfix: workshopStripsUnfusedSystems ripristinato a {__state}.");
         }
     }
 }
