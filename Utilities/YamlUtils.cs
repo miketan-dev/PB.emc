@@ -5,6 +5,13 @@ namespace PB.emc.utilities
 {
     public static class YamlUtils
     {
+        /// <summary>
+        /// Read a YAML file and deserializes it into an object of type T.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="fileName"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static T ReadFile<T>(string path, string fileName) where T : new()
         {
             var fullPath = Path.Combine(path, fileName);
@@ -20,13 +27,17 @@ namespace PB.emc.utilities
             return deserializer.Deserialize<T>(input);
         }
 
+        /// <summary>
+        /// Creates a new YAML file with default content.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="fileName"></param>
         private static void CreateFile<T>(string path, string fileName) where T : new()
         {
             var introText =
                 $"# [Enhanced Customization Mod - v{EmcModLink.modVersion}] \n" +
                 "# [Candidate Hardpoints Utility] \n"+
                 "# © .Miketan - https://github.com/miketan-dev \n" +
-                "#\n" +
                 "#\n" +
                 "# ============================================================================================ \n" +
                 "# This configuration file is composed in two sections: \n" +

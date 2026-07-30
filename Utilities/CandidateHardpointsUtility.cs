@@ -11,6 +11,11 @@ namespace PB.emc.utilities
         private static HashSet<string> _cachedHardpoints;
         private static HashSet<string> _cachedHardpointsTargeted;
 
+        /// <summary>
+        /// Checks if the static initialization has been done.
+        /// If not, it initializes the static fields `_cachedHardpoints` and `_cachedHardpointsTargeted`
+        /// by reading the corresponding YAML files.
+        /// </summary>
         private static void EnsureInit()
         {
             if (_cachedHardpoints != null) return;
@@ -26,26 +31,25 @@ namespace PB.emc.utilities
             var config = YamlUtils.ReadFile<CandidateHardpointsModel>(fullPath, filenameCombined);
             _cachedHardpoints = config?.Data?.CandidateHardpoints ?? [];
             _cachedHardpointsTargeted = config?.Data?.CandidateHardpointsTargeted ?? [];
-
-            foreach (var elements in _cachedHardpoints)
-            {
-                Debug.Log($"[EMC] - Hardpoint candidati trovati:\n numero elementi: {elements.Length} \n" +
-                          "lista hardpoints: \n" + elements.ToList());
-            }
-
-            foreach (var elements in _cachedHardpointsTargeted)
-            {
-                Debug.Log($"[EMC] - Hardpoint targeted trovati:\n numero elementi: {elements.Length} \n" +
-                          "lista hardpoints: \n" + elements.ToList());
-            }
+            
         }
 
+        /// <summary>
+        /// Checks if the given hardpoint is a candidate hardpoint to be editable.
+        /// </summary>
+        /// <param name="hardpoint">The hardpoint to check.</param>
+        /// <returns>True if the hardpoint is a candidate, false otherwise.</returns>
         public static bool IsCandidateHardpoint(string hardpoint)
         {
             EnsureInit();
             return _cachedHardpoints.Contains(hardpoint);
         }
 
+        /// <summary>
+        /// Checks if the given hardpoint is a candidate hardpoint targeted in the gen steps from part preset.
+        /// </summary>
+        /// <param name="hardpoint">The hardpoint to check.</param>
+        /// <returns>True if the hardpoint is a candidate targeted, false otherwise.</returns>
         public static bool IsCandidateHardpointTargeted(string hardpoint)
         {
             EnsureInit();
