@@ -8,7 +8,7 @@
 | Metadata                 | Details                                                |
 |:-------------------------|:-------------------------------------------------------|
 | **Release Date**         | 2025/12/14                                             |
-| **Update Date**          | TBD                                                    |
+| **Update Date**          | 2026/07/31                                             |
 | **Mod Version**          | `v2.1.1`                                               |
 | **Repository**           | [PB.emc](https://github.com/miketan-dev/PB.emc)        |
 | **Programming Language** | C# 7.3 (.NET Framework v4.7.2)                         |
@@ -25,10 +25,10 @@
 
 ---
 
-## MOD STATUS
+## MOD STATUS & DL LINK(S)
 
 - **Steam Workshop:** 🟡  
-  [Steam Workshop Link - TBD](#)
+  [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3620280569)
 - **Nexus Mod:** 🟡  
   [Nexus Mod Link - TBD](#)
 
