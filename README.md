@@ -5,21 +5,21 @@
 ![Framework](https://img.shields.io/badge/Framework-.NET%20v4.7.2-purple)
 ![Language](https://img.shields.io/badge/Language-C%23%207.3-informational)
 
-| Metadata                 | Details                                                    |
-|:-------------------------|:-----------------------------------------------------------|
-| **Release Date**         | 2025/12/14                                                 |
-| **Update Date**          | TBD                                                        |
-| **Mod Version**          | `v2.1.1`                                                   |
-| **Repository**           | [GitHub Repository](https://github.com/miketan-dev/PB.emc) |
-| **Programming Language** | C# 7.3 (.NET Framework v4.7.2)                             |
-| **Minimum Game Version** | >= v2.0                                                    |
+| Metadata                 | Details                                         |
+|:-------------------------|:------------------------------------------------|
+| **Release Date**         | 2025/12/14                                      |
+| **Update Date**          | TBD                                             |
+| **Mod Version**          | `v2.1.1`                                        |
+| **Repository**           | [PB.emc](https://github.com/miketan-dev/PB.emc) |
+| **Programming Language** | C# 7.3 (.NET Framework v4.7.2)                  |
+| **Minimum Game Version** | v2.0+                                           |
 
 ---
 
 ## CREDITS
 
-- Harmony Framework for the patching
-- Phantom Brigade Modding System
+- Harmony Framework for the patching;
+- Phantom Brigade Modding System;
 - Brace Yourself Games for the awesome game!
 
 ---

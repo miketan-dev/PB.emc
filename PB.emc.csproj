@@ -51,15 +51,15 @@
         <Compile Include="Models\CandidateHardpointsModel.cs" />
         <Compile Include="Patch.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="utilities\CandidateHardpointsUtility.cs" />
-        <Compile Include="utilities\YamlUtils.cs" />
+        <Compile Include="Utilities\CandidateHardpointsUtility.cs" />
+        <Compile Include="Utilities\YamlUtils.cs" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="versions\2.1.1\" />
+      <Folder Include="Versions\2.1.1\" />
     </ItemGroup>
     <ItemGroup>
-      <Content Include="versions\2.0.0\ConfigEdits\Data\Settings\overworld.yaml" />
-      <Content Include="versions\2.0.0\metadata.yaml" />
+      <Content Include="Versions\2.0.0\ConfigEdits\Data\Settings\overworld.yaml" />
+      <Content Include="Versions\2.0.0\metadata.yaml" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
