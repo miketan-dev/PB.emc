@@ -16,6 +16,45 @@
 
 ---
 
+## CREDITS
+
+- Harmony Framework for the patching
+- Phantom Brigade Modding System
+- Brace Yourself Games for the awesome game!
+
+---
+
+## MOD STATUS
+
+- **Steam Workshop:** 🟡  
+  [Steam Workshop Link - TBA](#)
+- **Nexus Mod:** 🟡  
+  [Nexus Mod Link - TBA](#)
+
+---
+
+## INSTALLATION (EPIC GAME VERSION)
+
+To install the mod:
+
+1. Extract the mod folder into the following directory:
+   <br>```[Drive]:\Users\[yourUser]\AppData\Local\PhantomBrigade\Mods```
+   <br><br>
+2. Launch the game; the mod will be automatically detected and activated.
+
+> ⚠️ **[DISCLAIMER]** ⚠️
+> <br>While the mod has been fully tested by covering most of the use cases, make sure to back up your save file before
+> applying the mod to avoid any unintended (and negative) effects.
+> <br><br>I will not be held responsible for any misuse of this mod or the damage can cause to
+> saves corruption.
+> <br>The above code project is made public to adhere
+> with [Brace Yourself Games' guidelines](https://braceyourselfgames.com/mod-policy/)
+> mostly to certify the present Library Code **DOES NOT CONTAIN** any malware and/or trojan in every form.
+> <br><br>You are free to use my mod as a dependency to other mods as long as you give
+> credits to me, as this mod is also covered under **BSD-3 Licence**.
+
+---
+
 ## Mod intro
 
 **Enhanced Mech Customization (E.M.C.)** is a library mod for *Phantom Brigade* that unlocks advanced hardpoint
@@ -61,7 +100,6 @@ which contains a pre-loaded list of hardpoints, as shown in the following code:
 # [Candidate Hardpoints Utility] 
 # © .Miketan - https://github.com/miketan-dev 
 #
-#
 # ============================================================================================ 
 # This configuration file is composed in two sections: 
 # 1. candidateHardpoints -> affects normal hardpoint definition to make it editable 
@@ -89,13 +127,6 @@ data:
   - external_top_head
   - external_top_pelvis
 ```
-
-> ⚠️ **NOTICE** ⚠️<br>
-> The above-mentioned folder, as well as the caching file, are generated WITHIN THE MOD DIRECTORY, as required by Brace
-> Yourself Games Guideline.
-> <br>By setting up the logic within said scope, any trace of the caching system can be safely removed, even manually if
-> required.
-> <br>No other file/folder generation is not perfomed OUTSIDE this scope other than the caching system of this mod.
 
 <br>The caching system will grant the user total control of which hardpoint can be enabled to be unfused or not
 config-wise.<br>
